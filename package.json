@@ -1,0 +1,11 @@
+{
+  "name": "myexpressappclass",
+  "version": "1.0.0",
+  "description": "express classwork app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carl Kakisis",
+  "license": "ISC"
+}
