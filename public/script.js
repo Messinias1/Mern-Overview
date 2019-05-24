@@ -4,19 +4,19 @@ function getUserInfo() {
    axios.get("/showprofile/" + input)
     .then(response => {
         console.log("axios", response.data)
-        document.getElementById("results").innerHTML = response.data + input;
+        document.getElementById("results").innerHTML = JSON.stringify(response.data) + input;
     })
 }
 
 function handleSubmit() {
-    const userName = document.getElementById("user-name").value
-    const userId = document.getElementById("user-id").value
+    const username = document.getElementById("user-name").value
+    // const userId = document.getElementById("user-id").value
     const message = document.getElementById("message").value
-    console.log(userName, userId, message)
+    console.log(username, message)
 
     const payload = {
-        userName,
-        userId,
+        username,
+        // userId,
         message
     }
 
