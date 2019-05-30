@@ -1,12 +1,42 @@
 function getUserInfo() {
    const input = document.getElementById("userName").value;
 
-   axios.get("/showprofile/" + input)
+   axios.get("/api/showprofile/" + input)
     .then(response => {
-        console.log("axios", response.data)
-        document.getElementById("results").innerHTML = JSON.stringify(response.data) + input;
+        displayUsers(response.data, "results")
     })
 }
+
+// function displayUsers(userData, id) {
+//     const listItems = userData.map(element => {
+//         return ("<li>" 
+//         + "Name: " + element.username + " "
+//         + "Message: " + (element.message ? element.message : " " +
+//         element.username + " did not leave a message.") +
+//          "</li>")
+//     })
+
+//     document.getElementById(id).innerHTML = "<ul>" + listItems.join("\n") + "</ul>"
+// }
+
+function displayUsers(userData, id) {
+       let header = document.getElementById('result').innerHTML =
+            "<tr>" 
+             + "<th>" + "Name " + "</th>"
+             + "<th>" + "Message " + "</th>"
+             + "</tr>" 
+
+             const listItems = userData.map(element => {
+             return ("<tr>" 
+             + "<td>" + element.username + "</td>"
+             + "<td>" + (element.message ? element.message : " " 
+             + element.username + " did not leave a message.") + "</td>"
+             + "</tr>"
+             )
+        })
+    
+        document.getElementById(id).innerHTML =  "<table style='width:100%'>" + header + listItems.join("\n") + "</table>"
+    }
 
 function handleSubmit() {
     const username = document.getElementById("user-name").value
@@ -28,8 +58,8 @@ function handleSubmit() {
 
 function getAllUsers() {
 
-    axios.get("getallusers")
+    axios.get("/api/getallusers")
         .then(response => {
-            document.getElementById('result').innerHTML = JSON.stringify(response.data)
+            displayUsers(response.data, "result")
         })
 }
