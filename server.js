@@ -3,9 +3,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
 const keys = require("./keys")
-const User = require("./models/User")
 const api = require('./routes/api')
-const port = 3000
+const port = 4000
 
 // connect to mongoose
 

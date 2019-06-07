@@ -1,11 +1,12 @@
 function getUserInfo() {
-   const input = document.getElementById("userName").value;
-
-   axios.get("/api/showprofile/" + input)
-    .then(response => {
-        displayUsers(response.data, "results")
-    })
-}
+    const input = document.getElementById("userName").value;
+    const url = "/api/showprofile/" + input;
+    axios.get(url)
+      .then(response => {
+        document.getElementById("results").innerHTML = JSON.stringify(response.data);
+      })
+   }
+   
 
 // function displayUsers(userData, id) {
 //     const listItems = userData.map(element => {
@@ -24,13 +25,17 @@ function displayUsers(userData, id) {
             "<tr>" 
              + "<th>" + "Name " + "</th>"
              + "<th>" + "Message " + "</th>"
+             + "</tr>"
+             + "<tr>"
+             + "<th>" + "-------" + "</th>"
+             + "<th>" + "-------" + "</th>"
              + "</tr>" 
 
              const listItems = userData.map(element => {
              return ("<tr>" 
-             + "<td>" + element.username + "</td>"
-             + "<td>" + (element.message ? element.message : " " 
-             + element.username + " did not leave a message.") + "</td>"
+             + "<th>" + element.username + "</th>"
+             + "<th>" + (element.message ? element.message : " " 
+             + element.username + " did not leave a message.") + "</th>"
              + "</tr>"
              )
         })

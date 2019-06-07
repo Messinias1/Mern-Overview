@@ -9,6 +9,8 @@ import React, { Component } from 'react'
     }
       handleSubmit = () => {
         console.log("submit clicked", this.state)
+        const newUser = "Name: " + this.state.userName + " | " + "Message: " + this.state.message
+        this.props.setData(newUser)
       }
 
     render() {

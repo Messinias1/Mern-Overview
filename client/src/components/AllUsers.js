@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class AllUsers extends Component {
+function AllUsers(props) {
 
-    getAllUsers = () => {
-        console.log("Getting All Users", this.props)
+    var result = ""
+
+    const getAllUsers = () => {
+        console.log("Getting All Users")
+        result = props.data
+        console.log("result", result)
+        props.setAllUsers()
     }
 
-    render() {
-
-        
-
-        return(
-        <div>
+    return (
+                <div>
             <h3>Get All Users</h3>
-            <button onClick={this.getAllUsers}>Get</button>
-            <p id="result"></p>
+            <button onClick={getAllUsers}>Get</button>
+            <br />
+            {result}
         </div> 
-        )
-    }
+    )
 }
 //  function AllUsers() {
 //      const getAllUsers = () => {
