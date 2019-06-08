@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
  class UserRegistration extends Component {
 
@@ -9,6 +10,15 @@ import React, { Component } from 'react'
     }
       handleSubmit = () => {
         console.log("submit clicked", this.state)
+
+        const data = {
+          username: this.state.userName,
+          message: this.state.message
+        }
+
+        axios.post('/api', data)
+          .then(res => console.log(res.data))
+
         const newUser = "Name: " + this.state.userName + " | " + "Message: " + this.state.message
         this.props.setData(newUser)
       }

@@ -6,19 +6,6 @@ function getUserInfo() {
         document.getElementById("results").innerHTML = JSON.stringify(response.data);
       })
    }
-   
-
-// function displayUsers(userData, id) {
-//     const listItems = userData.map(element => {
-//         return ("<li>" 
-//         + "Name: " + element.username + " "
-//         + "Message: " + (element.message ? element.message : " " +
-//         element.username + " did not leave a message.") +
-//          "</li>")
-//     })
-
-//     document.getElementById(id).innerHTML = "<ul>" + listItems.join("\n") + "</ul>"
-// }
 
 function displayUsers(userData, id) {
        let header = document.getElementById('result').innerHTML =
@@ -40,7 +27,7 @@ function displayUsers(userData, id) {
              )
         })
     
-        document.getElementById(id).innerHTML =  "<table style='width:100%'>" + header + listItems.join("\n") + "</table>"
+        document.getElementById(id).innerHTML =  "<table>" + header + listItems.join("\n") + "</table>"
     }
 
 function handleSubmit() {
